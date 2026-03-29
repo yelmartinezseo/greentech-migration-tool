@@ -1,0 +1,487 @@
+/*
+ * Greentech Migration Tool — Stylesheet
+ * Plugin:    Greentech Migration Tool
+ * Author:    Yel Martínez (https://yel-martinez-portfolio.com)
+ * Version:   1.0.0
+ * License:   GPL-2.0-or-later
+ *
+ * Todos los selectores llevan el prefijo .gtmt- o .mw- para evitar
+ * colisiones con el CSS global del tema de WordPress.
+ * Las variables CSS heredan del design system de Greentech:
+ * --ds-accent, --ds-navy, --ds-blue-muted, --ds-accent-dark.
+ */
+
+/* === FASES === */
+.mw-phase { display: none; }
+.mw-phase.active { display: block; }
+
+/* === PROGRESS BAR === */
+.mw-progress {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+.mw-progress-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.mw-progress-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: 2px solid rgba(245,214,69,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.3);
+  transition: all 0.3s;
+  position: relative;
+  z-index: 2;
+}
+.mw-progress-step.active .mw-progress-dot {
+  background: var(--ds-accent, #f5d645);
+  border-color: var(--ds-accent, #f5d645);
+  color: var(--ds-navy, #1a1830);
+}
+.mw-progress-step.done .mw-progress-dot {
+  background: rgba(245,214,69,0.15);
+  border-color: var(--ds-accent, #f5d645);
+  color: var(--ds-accent, #f5d645);
+}
+.mw-progress-label {
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.35);
+  text-align: center;
+  font-weight: 600;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.mw-progress-step.active .mw-progress-label { color: var(--ds-accent, #f5d645); }
+.mw-progress-step.done .mw-progress-label   { color: rgba(255,255,255,0.5); }
+.mw-progress-line {
+  flex: 1;
+  height: 2px;
+  background: rgba(245,214,69,0.15);
+  margin-top: 15px;
+  align-self: flex-start;
+  transition: background 0.3s;
+}
+.mw-progress-line.done { background: var(--ds-accent, #f5d645); }
+
+/* === INPUTS === */
+.mw-input,
+.mw-textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(245,214,69,0.15);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.88rem;
+  padding: 10px 14px;
+  transition: border-color 0.2s;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.mw-input:focus,
+.mw-textarea:focus {
+  border-color: var(--ds-accent, #f5d645);
+  background: rgba(255,255,255,0.07);
+}
+.mw-textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+/* === GRID DE OPCIONES === */
+.mw-opt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  gap: 8px;
+}
+.mw-opt-grid-sm {
+  grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
+}
+.mw-opt {
+  background: rgba(255,255,255,0.04);
+  border: 1.5px solid rgba(245,214,69,0.15);
+  border-radius: 8px;
+  padding: 11px 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  user-select: none;
+}
+.mw-opt:hover {
+  border-color: rgba(245,214,69,0.4);
+  color: rgba(255,255,255,0.9);
+}
+.mw-opt.selected {
+  border-color: var(--ds-accent, #f5d645);
+  background: rgba(245,214,69,0.08);
+  color: #fff;
+}
+
+/* === FILA DE MAPEO URL === */
+.mw-url-row {
+  display: grid;
+  grid-template-columns: 1fr 26px 1fr 30px;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.mw-url-arrow {
+  color: var(--ds-accent, #f5d645);
+  text-align: center;
+  font-size: 0.9rem;
+}
+.mw-btn-icon {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  color: rgba(255,255,255,0.3);
+  cursor: pointer;
+  padding: 7px;
+  font-size: 0.78rem;
+  line-height: 1;
+  transition: all 0.2s;
+}
+.mw-btn-icon:hover { border-color: #ef4444; color: #ef4444; }
+.mw-btn-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px dashed rgba(245,214,69,0.2);
+  border-radius: 8px;
+  color: rgba(255,255,255,0.35);
+  cursor: pointer;
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  width: 100%;
+  margin-top: 4px;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.mw-btn-add:hover {
+  border-color: var(--ds-accent, #f5d645);
+  color: var(--ds-accent, #f5d645);
+}
+
+/* === BANNER LÍMITE === */
+.gtmt-limit-banner {
+  background: linear-gradient(135deg, rgba(245,214,69,0.08) 0%, rgba(26,24,48,0.6) 100%);
+  border: 1px solid rgba(245,214,69,0.3);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 16px;
+  display: none; /* Se muestra via JS al alcanzar el límite */
+}
+.gtmt-limit-banner.visible { display: block; }
+.gtmt-limit-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ds-accent, #f5d645);
+  margin-bottom: 8px;
+}
+.gtmt-limit-text {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.gtmt-limit-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.gtmt-limit-counter {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  text-align: right;
+  margin-top: 4px;
+}
+.gtmt-limit-counter span {
+  color: var(--ds-accent, #f5d645);
+  font-weight: 700;
+}
+
+/* === TABS === */
+.mw-tabs { display: flex; gap: 4px; margin-bottom: 16px; }
+.mw-tab {
+  flex: 1;
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(245,214,69,0.12);
+  border-radius: 7px;
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  text-align: center;
+  font-family: inherit;
+}
+.mw-tab.active {
+  background: rgba(245,214,69,0.1);
+  border-color: var(--ds-accent, #f5d645);
+  color: var(--ds-accent, #f5d645);
+}
+
+/* === PATTERN PREVIEW === */
+.mw-pattern-preview {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  padding: 10px 14px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 6px;
+  margin-top: 8px;
+  word-break: break-all;
+  white-space: pre;
+  overflow-x: auto;
+}
+.mw-pattern-preview span { color: var(--ds-accent, #f5d645); }
+.mw-pattern-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* === CODE BLOCK === */
+.mw-code-block {
+  background: #0a091a;
+  border: 1px solid rgba(245,214,69,0.12);
+  border-radius: 8px;
+  padding: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: #a0ffa0;
+  overflow-x: auto;
+  white-space: pre;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.mw-code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.mw-code-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(255,255,255,0.4);
+}
+
+/* === CHECKLIST === */
+.mw-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 14px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  border: 1px solid rgba(245,214,69,0.1);
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 6px;
+}
+.mw-check-item:hover  { border-color: rgba(245,214,69,0.3); }
+.mw-check-item.checked {
+  border-color: rgba(34,197,94,0.4);
+  background: rgba(34,197,94,0.04);
+}
+.mw-check-box {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  transition: all 0.2s;
+}
+.mw-check-item.checked .mw-check-box {
+  background: #22c55e;
+  border-color: #22c55e;
+  color: #fff;
+}
+.mw-check-text {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.8);
+}
+.mw-check-tag {
+  font-size: 0.63rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 20px;
+  margin-left: 6px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.tag-critical    { background: rgba(239,68,68,0.15); color: #f87171; }
+.tag-recommended { background: rgba(107,140,166,0.2); color: var(--ds-blue-muted, #6B8CA6); }
+
+/* === STATS DEL CHECKLIST === */
+.mw-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.mw-stat-mini {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(245,214,69,0.12);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+.mw-stat-val {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--ds-accent, #f5d645);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.mw-stat-lbl {
+  font-size: 0.66rem;
+  color: rgba(255,255,255,0.4);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* === TABLA DE MAPEO === */
+.mw-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+.mw-table th {
+  text-align: left;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.4);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.mw-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(245,214,69,0.08);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.75);
+  word-break: break-all;
+}
+.mw-table tr:last-child td { border-bottom: none; }
+.mw-table .td-arrow  { color: var(--ds-accent, #f5d645); text-align: center; }
+.mw-table .td-status { text-align: center; }
+.mw-badge-ok  { background: rgba(34,197,94,0.15);  color: #4ade80; font-size: 0.63rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
+.mw-badge-err { background: rgba(239,68,68,0.15);  color: #f87171; font-size: 0.63rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
+
+/* === DIAGRAMA DE SERVIDOR === */
+.mw-diagram-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+  flex-wrap: wrap;
+}
+.mw-diagram-row .path {
+  font-family: 'Courier New', Courier, monospace;
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.07);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+/* === EXPORT CARDS === */
+.mw-export-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px,1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.mw-export-card {
+  background: rgba(255,255,255,0.04);
+  border: 1.5px solid rgba(245,214,69,0.15);
+  border-radius: 10px;
+  padding: 18px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.mw-export-card:hover {
+  border-color: var(--ds-accent, #f5d645);
+  background: rgba(245,214,69,0.06);
+  transform: translateY(-2px);
+}
+.mw-export-card .icon { font-size: 1.6rem; margin-bottom: 8px; display: block; }
+.mw-export-card .name { font-size: 0.82rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+.mw-export-card .desc { font-size: 0.68rem; color: rgba(255,255,255,0.4); }
+
+/* === ACTIONS BAR === */
+.mw-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+/* === DIVIDER === */
+.mw-divider { height: 1px; background: rgba(245,214,69,0.12); margin: 24px 0; }
+
+/* === ATRIBUCIÓN === */
+.gtmt-credit {
+  text-align: center;
+  padding: 20px 0 4px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.25);
+}
+.gtmt-credit a {
+  color: var(--ds-accent, #f5d645);
+  text-decoration: none;
+  font-weight: 600;
+}
+.gtmt-credit a:hover { text-decoration: underline; }
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  .mw-url-row { grid-template-columns: 1fr 20px 1fr 26px; gap: 5px; }
+  .mw-pattern-row { grid-template-columns: 1fr; }
+  .mw-progress-label { display: none; }
+  .mw-tabs { flex-wrap: wrap; }
+  .mw-tab { flex: none; width: calc(50% - 4px); font-size: 0.72rem; }
+  .mw-export-grid { grid-template-columns: repeat(2,1fr); }
+  .gtmt-limit-actions { flex-direction: column; }
+}
