@@ -42,7 +42,7 @@ define( 'GTMT_PLUGIN_DIR',   plugin_dir_path( __FILE__ ) );
 define( 'GTMT_PLUGIN_URL',   plugin_dir_url( __FILE__ ) );
 define( 'GTMT_URL_LIMIT',    50 );   // Límite de URLs en versión pública
 define( 'GTMT_AUTHOR_URL',   'https://yel-martinez-portfolio.com' );
-define( 'GTMT_GITHUB_URL',   'https://github.com/yelmartinez/greentech-migration-tool' );
+define( 'GTMT_GITHUB_URL', 'https://github.com/yelmartinezseo/greentech-migration-tool' );
 define( 'GTMT_CONTACT_URL',  'https://yel-martinez-portfolio.com/contacto/' );
 define( 'GTMT_TOOL_URL',     'https://yel-martinez-portfolio.com/mapeo-automatizado-de-urls-para-migraciones-web/' );
 
