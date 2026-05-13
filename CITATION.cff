@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "Si usas esta herramienta en tu proyecto, por favor cítala así:"
+type: software
+title: "Greentech Migration Tool"
+abstract: "Plugin WordPress gratuito para planificación y mapeo de URLs en migraciones web. Genera redirecciones para Apache, Nginx, Cloudflare, IIS y LiteSpeed. Incluye wizard de 5 pasos, checklist contextualizada y exportación múltiple."
+authors:
+  - family-names: "Martínez"
+    given-names: "Yel"
+    alias: "yelmartinezseo"
+    website: "https://yel-martinez-portfolio.com"
+repository-code: "https://github.com/yelmartinezseo/greentech-migration-tool"
+url: "https://yel-martinez-portfolio.com/mapeo-automatizado-de-urls-para-migraciones-web/"
+license: GPL-2.0-or-later
+version: "1.0.0"
+date-released: "2025-01-01"
+keywords:
+  - wordpress
+  - plugin
+  - migracion-web
+  - seo-tecnico
+  - redirecciones
+  - htaccess
+  - nginx
+  - sostenibilidad-digital
+  - greentech
+languages:
+  - es
+  - en
